@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/material.dart';
+import 'package:bordered_text/bordered_text.dart';
 
 Color colorBlack = const Color.fromRGBO(27, 27, 27, 1);
 Color colorRaisedButton = const Color.fromRGBO(62, 60, 161, 1);
@@ -66,28 +67,43 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    TextFormField(
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.center,
-                      autofocus: true,
-                      decoration: new InputDecoration(
-                        labelText: "Número Binário (Até 8 dígitos)",
-                        labelStyle: GoogleFonts.righteous(
-                          fontSize: 25.0,
+                    BorderedText(
+                      strokeWidth: 6.9,
+                      strokeColor: Colors.black,
+                      child: Text(
+                        "Número Binário (Até 8 dígitos)",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.righteous(
+                          fontSize: 18.0,
                           color: Colors.white,
-                          shadows: <Shadow>[
-                            Shadow(
-                              offset: Offset(10.0, 1.0),
-                              blurRadius: 1.0,
-                              color: Color.fromARGB(255, 40, 40, 40),
-                            ),
-                          ],
                         ),
-                        border: OutlineInputBorder(),
-                        fillColor: colorBlack,
                       ),
-                      style: GoogleFonts.righteous(
-                        color: Colors.white,
+                    ),
+                    Theme(
+                      data: new ThemeData(
+                        primaryColor: const Color.fromRGBO(196, 196, 196, 1),
+                      ),
+                      child: Container(
+                        height: 44,
+                        width: 304,
+                        margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        child: TextFormField(
+                          keyboardType: TextInputType.number,
+                          textAlign: TextAlign.center,
+                          autofocus: true,
+                          decoration: new InputDecoration(
+                            contentPadding: EdgeInsets.all(0),
+                            fillColor: const Color.fromRGBO(196, 196, 196, 1),
+                            filled: true,
+                            hintText: 'Enter a number',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(15),
+                              ),
+                            ),
+                          ),
+                          style: GoogleFonts.righteous(),
+                        ),
                       ),
                     ),
                   ],
