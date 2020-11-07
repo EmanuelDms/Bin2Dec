@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -12,66 +13,46 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  void _resetFields() {}
+  void _resetFields() {
+    print('Refresh Button');
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Bin2Dec",
-            style: GoogleFonts.righteous(fontSize: 48.0),
-          ),
-          backgroundColor: colorBlack,
-          centerTitle: true,
-          toolbarHeight: 77.0,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.refresh),
-              onPressed: () => {},
-            )
-          ],
+      appBar: AppBar(
+        title: Text(
+          "Bin2Dec",
+          style: GoogleFonts.righteous(fontSize: 48.0),
         ),
-        body: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Stack(
-              children: <Widget>[
-                Image.asset(
-                  "images/wallpaper.jpg",
-                  fit: BoxFit.cover,
-                  width: 500.0,
-                ),
-                Column(
+        backgroundColor: colorBlack,
+        centerTitle: true,
+        toolbarHeight: 77.0,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: _resetFields,
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Stack(
+            children: <Widget>[
+              Image.asset(
+                "images/wallpaper.jpg",
+                fit: BoxFit.cover,
+                width: 500.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    TextFormField(
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        alignLabelWithHint: true,
-                        labelText: "Binary Number",
-                        labelStyle: GoogleFonts.righteous(
-                          fontSize: 25.0,
-                          color: Colors.white,
-                        ),
-                        border: OutlineInputBorder(),
-                        fillColor: colorBlack,
-                      ),
-                      style: GoogleFonts.righteous(
-                        color: Colors.white,
-                      ),
-                      /*  width: 300.0,
-                        color: colorBlack,
-                        margin:
-                          EdgeInsets.only(top: 24.0, left: 80.0, right: 80.0),
-                        border: Border.all(
-                        ),
-                      ), */
-                    ),
                     Container(
                       margin: EdgeInsets.symmetric(
-                          vertical: 24.0, horizontal: 120.0),
+                          vertical: 24.0, horizontal: 100.0),
                       child: RaisedButton(
                         onPressed: () {},
                         color: colorRaisedButton,
@@ -85,11 +66,37 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
+                    TextFormField(
+                      keyboardType: TextInputType.number,
+                      textAlign: TextAlign.center,
+                      autofocus: true,
+                      decoration: new InputDecoration(
+                        labelText: "Número Binário (Até 8 dígitos)",
+                        labelStyle: GoogleFonts.righteous(
+                          fontSize: 25.0,
+                          color: Colors.white,
+                          shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(10.0, 1.0),
+                              blurRadius: 1.0,
+                              color: Color.fromARGB(255, 40, 40, 40),
+                            ),
+                          ],
+                        ),
+                        border: OutlineInputBorder(),
+                        fillColor: colorBlack,
+                      ),
+                      style: GoogleFonts.righteous(
+                        color: Colors.white,
+                      ),
+                    ),
                   ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
