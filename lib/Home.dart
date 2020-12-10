@@ -12,10 +12,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // Controllers for handling binary number
+  TextEditingController numberController = TextEditingController();
+
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   void _resetFields() {
-    print('Refresh Button');
+    setState(() {});
   }
 
   @override
@@ -42,7 +45,7 @@ class _HomeState extends State<Home> {
           child: Stack(
             children: <Widget>[
               Image.asset(
-                "images/wallpaper.jpg",
+                "assets/images/wallpaper.jpg",
                 fit: BoxFit.cover,
                 width: 500.0,
               ),
@@ -51,9 +54,36 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
+                    Center(
+                      child: Container(
+                        width: 304,
+                        height: 72,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "1010101",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 64,
+                                color: Colors.red,
+                                fontFamily: 'DigitalDisplay',
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          color: colorBlack,
+                          border: Border.all(
+                            color: const Color.fromRGBO(36, 130, 66, 1),
+                            width: 8,
+                          ),
+                        ),
+                      ),
+                    ),
                     Container(
-                      margin: EdgeInsets.symmetric(
-                          vertical: 24.0, horizontal: 100.0),
+                      margin:
+                          EdgeInsets.symmetric(vertical: 23, horizontal: 115.0),
                       child: RaisedButton(
                         onPressed: () {},
                         color: colorRaisedButton,
@@ -103,6 +133,14 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           style: GoogleFonts.righteous(),
+                          // Handling data
+                          controller: numberController,
+                          validator: (value) {
+                            if (value.isEmpty) {
+                              return "Enter a number";
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ),
