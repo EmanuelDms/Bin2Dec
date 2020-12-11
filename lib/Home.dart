@@ -54,49 +54,6 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    Center(
-                      child: Container(
-                        width: 304,
-                        height: 72,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "1010101",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 64,
-                                color: Colors.red,
-                                fontFamily: 'DigitalDisplay',
-                              ),
-                            ),
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                          color: colorBlack,
-                          border: Border.all(
-                            color: const Color.fromRGBO(36, 130, 66, 1),
-                            width: 8,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 23, horizontal: 115.0),
-                      child: RaisedButton(
-                        onPressed: () {},
-                        color: colorRaisedButton,
-                        child: Text(
-                          "Converter",
-                          style: GoogleFonts.righteous(
-                              fontSize: 18.0, color: Colors.white),
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                    ),
                     BorderedText(
                       strokeWidth: 6.9,
                       strokeColor: Colors.black,
@@ -141,6 +98,58 @@ class _HomeState extends State<Home> {
                             }
                             return null;
                           },
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 123,
+                      height: 41,
+                      margin: EdgeInsets.fromLTRB(0, 13, 0, 0),
+                      child: RaisedButton(
+                        onPressed: () {},
+                        color: colorRaisedButton,
+                        child: Text(
+                          "Converter",
+                          style: GoogleFonts.righteous(
+                              fontSize: 18.0, color: Colors.white),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(0, 22, 0, 22),
+                      child: Icon(
+                        Icons.arrow_downward,
+                        color: Colors.white,
+                        size: 64,
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        width: 304,
+                        height: 72,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "1010101",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 64,
+                                color: Colors.red,
+                                fontFamily: 'DigitalDisplay',
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          color: colorBlack,
+                          border: Border.all(
+                            color: const Color.fromRGBO(36, 130, 66, 1),
+                            width: 8,
+                          ),
                         ),
                       ),
                     ),
